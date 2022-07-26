@@ -59,12 +59,13 @@ app.post("/", (req, res) => {
   let subject = req.body['event-data'].message.headers.subject
 
   if(subject == 'Welcome to My Piano Adventures!'){
-    console.log('MAILGUN: success for', emailAd)
+    
     addMember(emailAd)
     res.status(200).end()
+    console.log('MAILGUN: success for', emailAd)
   }else{
-    console.log('MAILGUN: other notification - ', subject)
     res.status(200).end()
+    console.log('MAILGUN: other notification - ', subject)
   }
 })
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
