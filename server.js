@@ -58,8 +58,7 @@ app.post("/", (req, res) => {
   let emailAd = req.body['event-data'].message.headers.to
   let subject = req.body['event-data'].message.headers.subject
 
-
-  if(subject && subject == 'Welcome to My Piano Adventures!'){
+  if(subject == 'Welcome to My Piano Adventures!'){
     console.log('MAILGUN: success for', emailAd)
     addMember(emailAd)
     res.status(200).end()
