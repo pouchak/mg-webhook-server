@@ -52,18 +52,14 @@ app.use(bodyParser.json())
 app.get("/", (req, res) => {
   res.status(200).end()
 })
+
 app.post("/", (req, res) => {
-  let message = req.body['event-data'].message
-  console.log('MAILGUN: bad address - ', message)
-  res.status(200).end()
-})
-app.post("/hook", (req, res) => {
 
   let emailAd = req.body['event-data'].message.headers.to
   let subject = req.body['event-data'].message.headers.subject
 
 
-  if(subject == 'Welcome to My Piano Adventures!'){
+  if(subject && subject == 'Welcome to My Piano Adventures!'){
     console.log('MAILGUN: success for', emailAd)
     addMember(emailAd)
     res.status(200).end()
