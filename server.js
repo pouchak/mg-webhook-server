@@ -50,13 +50,14 @@ const addMember = async (emailAd) => {
 
 app.use(bodyParser.json())
 app.get("/", (req, res) => {
+  console.log('ping!')
   res.status(200).end()
 })
 
 app.post("/", (req, res) => {
 
-  let emailAd = req.body['event-data'].message.headers.to
-  let subject = req.body['event-data'].message.headers.subject
+  let emailAd = req.body['event-data'] ? req.body['event-data'].message.headers.to : 'noemail'
+  let subject = req.body['event-data'] ? req.body['event-data'].message.headers.subject : 'nosubject'
 
   if(subject == 'Welcome to My Piano Adventures!'){
     
