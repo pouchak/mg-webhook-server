@@ -1,6 +1,7 @@
 {
     "name": "mg-webhook-server",
     "version": "0.0.1",
+    "author": "Evan Pouchak",
     "dependencies": {
         "@mailchimp/mailchimp_marketing": "^3.0.75",
         "express": "*",
