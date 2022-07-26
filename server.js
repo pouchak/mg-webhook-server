@@ -8,15 +8,11 @@ const app = express()
 const PORT = process.env.PORT || 3000
 const mailingList = process.env.MAILING_LIST || 12345678
 
-console.log('ENVS:')
-console.log('Port:',process.env.PORT)
-console.log('Key:', process.env.MAILCHIMP_API_KEY)
-console.log('Mailing List:', process.env.MAILING_LIST)
-
 mailchimp.setConfig({
   apiKey: process.env.MAILCHIMP_API_KEY,
   server: 'us18',
 });
+
 
 const updateMemberTags = async (emailAd) =>{
   const subscriberHash = crypto
