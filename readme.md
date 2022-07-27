@@ -11,8 +11,11 @@ At the moment, if the server goes down, re-tries are made on Mailgun's end. In t
 The environment variables you'll need are as follows:
 
 PORT: a port you specify for the Express server.
+
 MAILCHIMP_API_KEY: your Mailchimp public API key.
+
 MAILING_LIST: the ID of the mailing list you are adding the email to.
 
 To start this server, use the following prompt:
+
 PORT=(port) MAILCHIMP_API_KEY=(key) MAILING_LIST=(list id) npm start
